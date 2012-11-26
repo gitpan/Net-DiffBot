@@ -16,11 +16,11 @@ Net::DiffBot - Interface to the diffbot.com API
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 =head1 SYNOPSIS
@@ -30,7 +30,7 @@ This module is just an interface for www.diffbot.com API.
     use Net::DiffBot;
 
     my $d = Net::DiffBot->new('token' => 'diffbottoken');
-	my $page_date = $d->get_data_from_url($url)
+	my $page_data = $d->get_data_from_url($url)
     ...
 
 
@@ -58,11 +58,11 @@ sub new {
   return $self
 }
 
-=head2 get_date_from_url
+=head2 get_data_from_url
 
 Fetch diffbot data based on the url , along with the url you can set other options
 
-	my $page_date = $d->get_data_from_url($url, 'tags' => 1, summary => 1)
+	my $page_data = $d->get_data_from_url($url, 'tags' => 1, summary => 1)
 
 	Valid flags are: callback, html, dontStripAds, tags, comments, summary
 	You can see the use of theses flags at www.diffbot.com
@@ -71,7 +71,7 @@ Fetch diffbot data based on the url , along with the url you can set other optio
 
 =cut
 
-=head2 get_date_by_content
+=head2 get_data_from_content
 
 Fetch diffbot data based on sent content , you also need to send the url and the content type  ('text/plain', 'text/html'). You can also set other options as with get_data_from_url.
 
@@ -191,14 +191,6 @@ sub build_request_url {
 =head1 AUTHOR
 
 Bruno Martins, C<< <bscmartins at gmail.com> >>
-
-=head1 BUGS
-
-Please report any bugs or feature requests to C<bug-net-diffbot at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Net-DiffBot>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
-
-
 
 
 =head1 SUPPORT
